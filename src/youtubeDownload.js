@@ -1,10 +1,10 @@
 const fs = window.require('fs');
 const youtubedl = window.require('youtube-dl');
 const ffmpeg = window.require('ffmpeg');
+
 ffmpeg.bin = '/Users/melonbread/repos/ytdl/ffmpeg-mac/bin/ffmpeg';
 console.log('ffmpeg is:::', ffmpeg.bin);
 const download = ({ url }) => {
-
   console.log(url);
   const video = youtubedl(url,
     ['--format=18'],
