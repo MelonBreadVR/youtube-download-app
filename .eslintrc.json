@@ -24,10 +24,13 @@
       2,
       "single"
     ],
-    "semi": [
+    "indent": [
       "error",
-      "never"
-    ]
+      2
+    ],
+    "no-underscore-dangle": "off",
+    "no-new": "off",
+    "no-console": "off"
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
