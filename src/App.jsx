@@ -4,19 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import FormControl from 'react-bootstrap/FormControl';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
-import Alert from 'react-bootstrap/Alert';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import download from './youtubeDownload';
 import logo from './image/logo.png';
-
-
-
 import './App.css';
+
+
 const { shell } = window.require('electron');
 
 const schema = yup.object({
@@ -27,7 +23,6 @@ const openURL = () => shell.openExternal('https://www.twitch.tv/melonpangames');
 
 
 const App = () => (
-  
   <Container className="twitch">
     <Row className="justify-content-center">
       <Image className="logo" src={logo} />

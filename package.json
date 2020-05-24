@@ -3,14 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "main": "src/start.js",
+  "description": "help you download them thicc youtube vids",
+  "author": "MelonPanGames",
+  "main": "public/electron.js",
   "build": {
-    "appId": "com.electron.electron-with-create-react-app",
+    "appId": "com.melonpangames.youtube-downloader",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "asarUnpack": [
+      "**/app/node_modules/ffmpeg/*",
+      "**/app/node_modules/youtube-dl/*"
+    ],
     "win": {
-      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+      "icon": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
     },
     "directories": {
-      "buildResources": "public"
+      "buildResources": "assets"
     }
   },
   "dependencies": {
@@ -18,7 +28,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.0",
-    "electron": "^8.2.5",
+    "electron-is-dev": "^1.2.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -36,13 +46,16 @@
   "scripts": {
     "start": "nf start -p 3000",
     "build": "react-scripts build",
+    "clean": "rimraf build && rimraf dist",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-start": "node src/start-react",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "preelectron-pack": "npm run clean && npm run build",
     "react-start": "BROWSER=none react-scripts start",
-    "pack": "build --dir",
-    "dist": "npm run build && build",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build && electron-builder",
     "postinstall": "install-app-deps"
   },
   "eslintConfig": {
@@ -61,6 +74,8 @@
     ]
   },
   "devDependencies": {
-    "electron-builder": "^22.6.0"
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
+    "rimraf": "^3.0.2"
   }
 }

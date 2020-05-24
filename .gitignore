@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-/public
 *.mp3
 *.mp4
 
@@ -13,6 +12,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
